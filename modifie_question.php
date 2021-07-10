@@ -177,10 +177,10 @@
         <div class="collapse navbar-collapse" id="navbarsExample02">
             <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a class="nav-link " href="adminhome.php">Question List</a>
+                <a class="nav-link " href="adminhome.php">Liste des Questions</a>
             </li>     
             </ul>      
-            <form method='get' class="mx-4" action='log_out.php'><button type='submit' class="btn btn-outline-danger">Log out</button></form> 
+            <form method='get' class="mx-4" action='log_out.php'><button type='submit' class="btn btn-outline-danger">Déconnecter</button></form> 
         </div>
         </div>
     </nav>
@@ -229,7 +229,7 @@
         <hr>
         <br>
         <div class="mb-3">
-            <span class=''>Preciser le nombre des choix :</span>
+            <span class=''>Préciser le nombre des choix :</span>
             
             <button type="button" class="btn btn-outline-primary" onclick="nombredesreponse(3);"> 3 </button>
             <button type="button" class="btn btn-outline-primary" onclick="nombredesreponse(4);"> 4 </button>
@@ -253,7 +253,7 @@
         <!--Le Choix Correct-->
         
             <div class="mb-3">
-                <h4>Le Choi Correct est :</h4>
+                <h4>Le Choix Correct est :</h4>
                 <hr>
                 <select id='choi_correct' name='reponse_correct' class="form-select bg-success text-white " aria-label="Default select example">
                 </select>
@@ -266,7 +266,6 @@
     <script type="text/javascript">
         var initial_reponse_data = <?php echo json_encode($initial_reponse_data); ?>;
         nombre_des_reponse =    <?php echo $initial_reponse_number?>;            
-        console.log(nombre_des_reponse);
         reponsearea= document.getElementById("reponsearea");
         choi_correct= document.getElementById("choi_correct");
         reponse_nombre = document.getElementById("reponse_nombre");
@@ -275,14 +274,14 @@
         
         reponsearea.innerHTML='';
         for(i =1 ; i< nombre_des_reponse+1 ; i++){
-                reponsearea.innerHTML +='<br>Le Choi nombre '+i+' :<input name="reponse_nombre_'+i+'" class="form-control" value="'+initial_reponse_data[i-1][1]+'"  ></input><div id="reponsearea">';              
+                reponsearea.innerHTML +='<br>Le Choix nombre '+i+' :<input name="reponse_nombre_'+i+'" class="form-control" value="'+initial_reponse_data[i-1][1]+'"  ></input><div id="reponsearea">';              
             }
             
         choi_correct.innerHTML='';
         for(i =1 ; i< nombre_des_reponse+1 ; i++){
                 selected_choi = '';
                 if(i == <?php echo $correct_reponse_nombre ?>){selected_choi="selected";}
-                choi_correct.innerHTML +='<option '+selected_choi+' value="'+i+'">Le Choi nombre '+i+'</option>   ';           
+                choi_correct.innerHTML +='<option '+selected_choi+' value="'+i+'">Le Choix nombre '+i+'</option>   ';           
                 }
                 reponse_nombre.value = nombre_des_reponse;
         
@@ -290,11 +289,11 @@
             submit.innerHTML='<button type="submit" class="btn btn-primary">Submit</button>   ';
             reponsearea.innerHTML='';
             for(i =1 ; i< nombre_des_reponse+1 ; i++){
-                reponsearea.innerHTML +='<br>Le Choi nombre '+i+' :<input name="reponse_nombre_'+i+'" class="form-control"  ></input><div id="reponsearea">';              
+                reponsearea.innerHTML +='<br>Le Choix nombre '+i+' :<input name="reponse_nombre_'+i+'" class="form-control"  ></input><div id="reponsearea">';              
             }
             choi_correct.innerHTML='';
             for(i =1 ; i< nombre_des_reponse+1 ; i++){
-                choi_correct.innerHTML +='<option value="'+i+'">Le Choi nombre '+i+'</option>   ';           
+                choi_correct.innerHTML +='<option value="'+i+'">Le Choix nombre '+i+'</option>   ';           
                 }
             reponse_nombre.value = nombre_des_reponse;
         }

@@ -169,7 +169,7 @@ include('connection.php');
            
     ?>
     <hr class='mx-3'>
-    <h4 class="text-start">Votre Choi :</h4>
+    <h4 class="text-start">Votre Choix :</h4>
     <select class="form-select" aria-label="Default select example" name='le_choi'>
         <?php 
             for($i=1; $i<$reponse_number+1 ; $i++){
@@ -215,7 +215,7 @@ include('connection.php');
         $_SESSION["exam_end"] = false;
     ?>
     </form>
-    <a href="http://127.0.0.1/Projet_web2/abonnee.php">Go Home</a>
+    <a href="http://127.0.0.1/Projet_web2/abonnee.php">Revenir</a>
 
 
 

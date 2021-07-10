@@ -54,8 +54,9 @@
                     $erorr = 1;
                 } 
             }
-            if ($erorr ==0){echo "<h5 class='badge bg-success text-white' style='width:100%;border-radius:0;>La Question et les reponse créé avec succès </h4>";}
-
+            if ($erorr ==0){echo "<h5 class='badge bg-success text-white' style='width:100%;border-radius:0;'>La Question et les reponse créé avec succès </h5>";}
+            $_SESSION['the_current_niveau']=$niveau;
+            $_SESSION['the_current_language_id']=$language_id;
         }else{// if its not accepted
             $_SESSION['the_current_niveau']=$niveau;
             $_SESSION['the_current_language_id']=$language_id;
@@ -68,7 +69,15 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Create a Question</title>
+        <title>Créer une question</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/navbar.css" rel="stylesheet">
+    </head>
+    <head>
+        <meta charset="utf-8">
+        <title>Créer une question</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -80,17 +89,17 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark" >
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">Create a Question </a>
+        <a class="navbar-brand" href="#">Créer une question </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarsExample02">
             <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a class="nav-link " href="adminhome.php">Question List</a>
+                <a class="nav-link " href="adminhome.php">Liste des Questions</a>
             </li>     
             </ul>       
-            <form method='get' class="mx-4" action='log_out.php'><button type='submit' class="btn btn-outline-danger">Log out</button></form>
+            <form method='get' class="mx-4" action='log_out.php'><button type='submit' class="btn btn-outline-danger">Déconnecter</button></form>
         </div>
         </div>
     </nav>
@@ -138,7 +147,7 @@
         <hr>
         <br>
         <div class="mb-3">
-            <span class=''>Preciser le nombre des choix :</span>
+            <span class=''>Préciser le nombre des choix :</span>
             <button type="button" class="btn btn-outline-primary" onclick="nombredesreponse(3);"> 3 </button>
             <button type="button" class="btn btn-outline-primary" onclick="nombredesreponse(4);"> 4 </button>
             <button type="button" class="btn btn-outline-primary" onclick="nombredesreponse(5);"> 5 </button>
@@ -157,7 +166,7 @@
         <!--Le Choix Correct-->
         
             <div class="mb-3">
-                <h4>Le Choi Correct est :</h4>
+                <h4>Le Choix Correct est :</h4>
                 <hr>
                 <select id='choi_correct' name='reponse_correct' class="form-select bg-success text-white " aria-label="Default select example">
                 </select>
@@ -178,11 +187,11 @@
             submit.innerHTML='<button type="submit" class="btn btn-primary">Submit</button>   ';
             reponsearea.innerHTML='';
             for(i =1 ; i< nombre_des_reponse+1 ; i++){
-                reponsearea.innerHTML +='<br>Le Choi nombre '+i+' :<input name="reponse_nombre_'+i+'" class="form-control"  ></input><div id="reponsearea">';              
+                reponsearea.innerHTML +='<br>Le Choix nombre '+i+' :<input name="reponse_nombre_'+i+'" class="form-control"  ></input><div id="reponsearea">';              
             }
             choi_correct.innerHTML='';
             for(i =1 ; i< nombre_des_reponse+1 ; i++){
-                choi_correct.innerHTML +='<option value="'+i+'">Le Choi nombre '+i+'</option>   ';           
+                choi_correct.innerHTML +='<option value="'+i+'">Le Choix nombre '+i+'</option>   ';           
                 }
                 reponse_nombre.value = nombre_des_reponse;
         }

@@ -43,11 +43,11 @@ if ($result_langage->num_rows > 0) {
   <body class="text-center">
     <nav class="navbar navbar-expand navbar-dark bg-dark" >
     <div class="container-fluid">
-      <h4 class="mx-auto text-white">HI <?php echo $_SESSION['nom']; ?> !</h4>
+      <h4 class="mx-auto text-white">Salut <?php echo $_SESSION['nom']; ?> !</h4>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <form method='get' class="mx-4" action='log_out.php'><button type='submit' class="btn btn-outline-danger">Log out</button></form>
+      <form method='get' class="mx-4" action='log_out.php'><button type='submit' class="btn btn-outline-danger">Déconnecter</button></form>
     </div>
   </nav>
 <div style="width:90%" class="mx-auto">
@@ -81,7 +81,7 @@ if ($result_langage->num_rows > 0) {
     <br>
     <br>
     <div>
-        <h1 class='text-start' style="margin-right:40px;">Records</h1>
+        <h1 class='text-start' style="margin-right:40px;">Archives</h1>
         <hr class="">
         <div>
           <?php 

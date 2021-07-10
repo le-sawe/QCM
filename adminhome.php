@@ -18,14 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {// if its a post request
       $delete_question_id = $_POST["delete_question_id"];
       $delete_question_sql = "DELETE FROM question WHERE noquestion='$delete_question_id'";
       if ($conn->query($delete_question_sql) === TRUE) {
-        echo "<h5 class='badge bg-success text-white text-center my-0  ' style='width=100%;border-radius:0;'> Question deleted successfully</h5>";
       } else {
         echo "Error deleting record: " . $conn->error;
       }
     
       $delete_reponse_related_to_question_sql = "DELETE FROM reponse WHERE noquestion='$delete_question_id'";
       if ($conn->query($delete_reponse_related_to_question_sql) === TRUE) {
-        echo "Reponses deleted successfully";
       } else {
         echo "Error deleting record: " . $conn->error;
       } 
@@ -52,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {// if its a post request
   <body class="text-center">
     <nav class="navbar navbar-expand navbar-dark bg-dark" >
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Question List </a>
+      <a class="navbar-brand" href="#">Liste des Questions </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -60,10 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {// if its a post request
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="create_question.php">Create a Question</a>
+            <a class="nav-link" href="create_question.php">Créer une question</a>
           </li>
         </ul>
-        <h4 class="mx-auto text-white">HI <?php echo $_SESSION['nom']; ?> !</h4>
+        <h4 class="mx-auto text-white">Salut <?php echo $_SESSION['nom']; ?> !</h4>
         <form method="post" action="adminhome.php" class="d-flex justify-content-evenly ">
           <button type="submit" class="btn btn-outline-info " style="border-top-right-radius : 0;border-bottom-right-radius : 0" >Filter</button>
         <select class="form-select" name="language_id" style="border-top-left-radius : 0;border-bottom-left-radius : 0">
@@ -77,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {// if its a post request
             </select>
         </form>
         
-        <form method='get' class="mx-4" action='log_out.php'><button type='submit' class="btn btn-outline-danger">Log out</button></form>
+        <form method='get' class="mx-4" action='log_out.php'><button type='submit' class="btn btn-outline-danger">Déconnecter</button></form>
       </div>
   
     </div>
@@ -92,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {// if its a post request
       <th scope="col">La Laguage</th>
       <th scope="col">Faite par</th>
       <th scope="col">Modification</th>
-      <th scope="col">Delete</th>
+      <th scope="col">Supprimé</th>
     </tr>
   </thead>
   <tbody>

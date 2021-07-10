@@ -1,4 +1,5 @@
 <?php 
+$authentication_success=true;
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["user_type"]) && isset($_POST["username"]) && isset($_POST["password"])) {// if request method is POST
     include('connection.php');      // connect the database
@@ -7,9 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["user_type"]) && isset
       $user_type = $_POST["user_type"];
       $username = $_POST["username"];
       $password = $_POST["password"];
-      echo "user type : ".$user_type."<br>username : ".$username."<br><br>password : ".$password."<br>";
       if($user_type==1){ // Abonne
-        echo "abonne";
         $auth_sql = "select *from abonne where username = '$username' and password = '$password'";          
         $result = mysqli_query($conn, $auth_sql);  
         $count = mysqli_num_rows($result); 
@@ -27,16 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["user_type"]) && isset
               }
             }
             header("Location: abonnee.php");
-          }
+          } 
+          else{$authentication_success=false;}
         }
         elseif($user_type==2){ // Admin
-          echo "its admin";
           $auth_sql = "select *from admin where username = '$username' and password = '$password'";          
           $result = mysqli_query($conn, $auth_sql);  
           $count = mysqli_num_rows($result); 
           
           if($count == 1){// if authenctication success  
-            echo "its admin success";
               $user_data_sql = "SELECT * FROM admin WHERE username = '$username'";
               $user_data_result = $conn->query($user_data_sql);
               if ($user_data_result->num_rows > 0) {
@@ -50,12 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["user_type"]) && isset
                 }
               }
               header("Location: adminhome.php") ;
-          }   
+          }else{$authentication_success=false;}   
+          
       }    
     } 
-    else{  
-        echo "<h1> Login failed. Invalid username or password.</h1>";  
-    }     
+      
 }
 ?>
 
@@ -76,14 +73,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["user_type"]) && isset
 <main class="form-signin">
   <form method="POST" action="authentication_page.php">
     <img class="mb-4" src="img/omencodes.png" alt=""  height="100">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal">Connectez-vous à votre compte</h1>
     <!-- User Type input  -->
     <div class="form-floating">
     <select class="form-select"  name='user_type'>
         <option value='1' selected>Abonne</option>
         <option value="2">Admin</option>     
     </select>
-      <label for="floatingInput">User Type</label>
+      <label for="floatingInput">Type d'utilisateur</label>
     </div>
     <!-- Username input  -->
     <div class="form-floating">
@@ -96,8 +93,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["user_type"]) && isset
       <label for="floatingPassword">Password</label>
     </div>
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Connectez-vous</button>
+    <p class="mt-5 mb-3 text-muted">&copy; Projet de le cnam liban web2 </p>
+    <?php if($authentication_success==false){
+      echo "<h4 class='badge bg-danger'>Nom d'utilisateur ou mot de passe invalide.</h4> ";
+    } ?>
 </form>
 
 </main>
