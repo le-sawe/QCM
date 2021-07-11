@@ -94,7 +94,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["user_type"]) && isset
     </div>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Connectez-vous</button>
-    <p class="mt-5 mb-3 text-muted">&copy; Projet de le cnam liban web2 </p>
+    <p class="mt-5 mb-3 text-muted">&copy; mohamad al moussawi</p>
+    <a href="https://github.com/omencodes/QCM">Git Hub</a>
+    <p class="mt-5 mb-3 text-muted">si c'est la première fois que vous lancez le site, veuillez créer la base de données initiale</p>
+    <a href="creation_bd.php" type='submit' class="btn btn-outline-danger">Créer la base de données</a>
+
+
     <?php if($authentication_success==false){
       echo "<h4 class='badge bg-danger'>Nom d'utilisateur ou mot de passe invalide.</h4> ";
     } ?>

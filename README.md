@@ -1,4 +1,7 @@
 # QCM
+
+!!! DONT FORGET TO CREATE THE DATABASE !!!!
+
 Les Page dans la Site :
     1. Authentication Page
     2. Admin home
@@ -189,6 +192,7 @@ the structure of the data base is fine
 personal email : mhd2002mswi@gmail.com
 email : omencodes@gmail.com
 the site : omencodes.com (maybe broken now bcs of the lebanese problem)
-github :
+github : https://github.com/omencodes/QCM
+
 
 

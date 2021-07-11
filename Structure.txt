@@ -1,3 +1,5 @@
+
+
 Les Page dans la Site :
     1. Authentication Page
     2. Admin home
@@ -184,6 +186,8 @@ the code should be more flexible sorry for that (the number of question for the 
 those point take some time (i dont have it :)  )
 to mention the code is flexible with the language
 the structure of the data base is fine 
+
+Dont forget to run the database creation !!
 
 personal email : mhd2002mswi@gmail.com
 email : omencodes@gmail.com
